@@ -9,7 +9,7 @@ name = ""
 version = ""
 description = ""
 authors = [
-    {name = "Mikołaj Nowak", email = "miknowak@outlook.com"},
+    {name = "Mikołaj Nowak", email = "gh_contact.hg3xs@8shield.net"},
 ]
 dependencies = [
     "pyautogui>=0.9.53",
