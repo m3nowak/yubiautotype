@@ -1,6 +1,8 @@
 import argparse
 
 import config_mgnt
+import windowselect
+
 import time
 import pyautogui
 
@@ -15,6 +17,8 @@ def add(args: argparse.Namespace):
 
 def type(args: argparse.Namespace):
     secret =config_mgnt.read_secret(args.label, args.config)
+    if args.window:
+        windowselect.focus_window(args.window.strip())
     time.sleep(args.delay)
     pyautogui.typewrite(secret)
     pyautogui.typewrite("\n")
@@ -42,8 +46,9 @@ def parser() -> argparse.ArgumentParser:
     sub_add.add_argument('label', help="Secret label")
     sub_add.set_defaults(func=add)
 
-    sub_type = subparsers.add_parser('t', help='Perform auto-type of secret')
+    sub_type = subparsers.add_parser('t', help='Perform auto-type of a secret')
     sub_type.add_argument('label', help="Secret label")
+    sub_type.add_argument('-w', '--window', help="Window title (part)")
     sub_type.add_argument('-d', '--delay', type=int,
                           help="Auto-type delay", default=0)
     sub_type.set_defaults(func=type)

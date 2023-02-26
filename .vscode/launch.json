@@ -14,9 +14,9 @@
             "console": "integratedTerminal",
             "justMyCode": true,
             "args": [
-                "-f",
-                "a",
-                "test1",
+                "t",
+                "test",
+                "--window=Kate"
             ]
         }
     ]
