@@ -17,9 +17,9 @@ def add(args: argparse.Namespace):
 
 def type(args: argparse.Namespace):
     secret =config_mgnt.read_secret(args.label, args.config)
+    time.sleep(args.delay)
     if args.window:
         windowselect.focus_window(args.window.strip())
-    time.sleep(args.delay)
     pyautogui.typewrite(secret)
     pyautogui.typewrite("\n")
 
